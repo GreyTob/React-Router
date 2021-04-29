@@ -10,19 +10,37 @@ export default class Cars extends Component {
     ]
   }
 
+  goToHomePage = () => {
+    this.props.history.push({
+      pathname: '/',
+      search: '?itWorks',
+      hash: 'very well'
+    })
+  }
+
+  goToAboutPage = () => {
+    this.props.history.push('/about')
+  }
+
   render() {
+    // console.log(this.props)
     return (
       <div style={{
         width: 400,
         margin: 'auto',
-        paddingTop: '20px'
+        paddingTop: '20px',
+        textAlign: 'center',
       }}>
+        <button onClick={this.goToHomePage}>Go to home page</button>
+        <button onClick={this.goToAboutPage}>Go to about page</button>
+        <hr/>
         {this.state.cars.map((car, index) => {
           return (
             <Car
               key={index}
               name={car.name}
               year={car.year}
+              //{...this.props}
             />
           )
         })}
