@@ -44,6 +44,7 @@ export default class Cars extends Component {
             />
           )
         })}
+        <hr/>
       </div>
     )
   }
